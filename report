@@ -1,0 +1,160 @@
+# Customer Support Ticket Classification System
+
+# 1. Introduction
+
+Customer support teams receive many tickets every day. Manually reading and sorting these tickets takes a lot of time and can delay important issues.
+
+This project builds a Machine Learning system that can automatically:
+
+* classify support tickets into categories
+* assign priority levels
+
+The goal is to reduce manual work and improve customer support efficiency.
+
+---
+
+# 2. Dataset Used
+
+The dataset contains around **8,469 customer support tickets**.
+
+Each ticket includes:
+
+* Ticket subject
+* Ticket description
+* Ticket type
+* Ticket priority
+* Customer details
+* Support channel
+
+### Ticket Categories
+
+* Refund Request
+* Technical Issue
+* Cancellation Request
+* Product Inquiry
+* Billing Inquiry
+
+### Priority Levels
+
+* Critical
+* High
+* Medium
+* Low
+
+The dataset was balanced, meaning all categories had similar numbers of records.
+
+---
+
+# 3. Data Preprocessing
+
+Before training the model, the text data was cleaned.
+
+The following preprocessing steps were applied:
+
+* converted text to lowercase
+* removed punctuation and special characters
+* removed URLs and emails
+* removed extra spaces
+
+The ticket subject and description were combined into one text field for better prediction.
+
+---
+
+# 4. Feature Engineering
+
+The text data was converted into numerical form using **TF-IDF Vectorization**.
+
+TF-IDF helps identify important words in tickets.
+
+Examples:
+
+* refund
+* payment
+* network
+* billing
+
+These words help the model understand ticket categories.
+
+---
+
+# 5. Models Used
+
+Three Machine Learning algorithms were tested:
+
+| Model               | Purpose                 |
+| ------------------- | ----------------------- |
+| Logistic Regression | Text classification     |
+| Naive Bayes         | Fast NLP classification |
+| Random Forest       | Ensemble learning       |
+
+Separate models were trained for:
+
+* Ticket Type Prediction
+* Priority Prediction
+
+---
+
+# 6. Results
+
+## Ticket Type Classification
+
+| Model               | Accuracy |
+| ------------------- | -------- |
+| Logistic Regression | ~32%     |
+| Naive Bayes         | ~32%     |
+| Random Forest       | ~22%     |
+
+Logistic Regression performed best.
+
+---
+
+## Priority Prediction
+
+| Model               | Accuracy |
+| ------------------- | -------- |
+| Logistic Regression | ~26%     |
+| Naive Bayes         | ~26%     |
+| Random Forest       | ~25%     |
+
+Priority prediction was difficult because priority often depends on factors beyond text.
+
+---
+
+# 7. Analysis
+
+The system was able to identify useful patterns from customer tickets.
+
+However:
+
+* many tickets contained repetitive template text
+* priority labels were influenced by non-text information
+
+Even with moderate accuracy, the system can still help reduce manual ticket sorting.
+
+---
+
+# 8. Future Improvements
+
+The project can be improved using:
+
+* Transformer models like BERT
+* Deep Learning models
+* Better quality datasets
+* Real-time API deployment
+* Multilingual support
+
+---
+
+# 9. Conclusion
+
+This project developed a Machine Learning system for automatic support ticket classification and priority assignment.
+
+The system:
+
+* processes ticket text
+* converts text into numerical features
+* predicts ticket category and urgency
+
+Logistic Regression gave the best performance for ticket classification.
+
+The project demonstrates how NLP and Machine Learning can help automate customer support operations and save time for support teams.
